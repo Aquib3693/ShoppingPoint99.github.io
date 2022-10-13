@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.admin-textbox{
+    Height:25px;
+    Width:50%;
+    text-align: left;
+}
+.admin-button{
+    background-color:#8DC73F;   
+    font-weight:bold; 
+    Font-Size:16px;
+    color:white;
+    Height:35px;
+    Width:79px;
+    border: none;
+}
+.validation{
+    color:red;
+    font-size:14px;
+}
+
+.master-td{
+    border-bottom-style: solid; 
+    border-width: 1px; 
+    border-color: white;
+}
+.master-hyperlink{
+    text-decoration:none;
+    color:white;
+}
+
+.field-set{
+  border-color: #8DC73F;
+  border-style: solid;
+}
+
+

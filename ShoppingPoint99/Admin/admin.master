@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="Admin_admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../CSS/MasterStyleSheet.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 380px;
+           
+        }
+        .auto-style2 {
+        }
+        .auto-style3 {
+            width: 25%;
+            height: 91px;
+        }
+        .auto-style4 {
+            width: 75%;
+            height: 91px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .auto-style5 {
+            height: 4px;
+        }
+        .auto-style6 {
+            height: 427px;
+        }
+        .auto-style7 {
+            width: 75%;
+            height: 427px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="sm1" runat="server"></asp:ScriptManager>
+        
+    <div>
+
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style3">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/OtherImages/shoplogo.jpg" />
+                </td>
+                <td class="auto-style4" style="font-size: x-large; font-weight: 700" >WELCOME ADMIN AQUIB
+                    <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
+                </td>
+                <td class="auto-style4" style="font-size: 25px; font-weight: 600" >
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="admin-button" OnClick="btnLogout_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style5" colspan="3" style="background-color: #8dc73f"></td>
+            </tr>
+            <tr>
+                <td class="auto-style6" valign="top">
+                    <table class="auto-style1" style="width: 100%; background-color: #8dc73f; color: White; font-size: larger; font-weight: 600;">
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink1" runat="server" Text="Country Master" NavigateUrl="CountryMaster.aspx" CssClass="master-hyperlink" ></asp:HyperLink>  </td>
+                        </tr>
+                        <tr style="border-bottom:solid;border-bottom-color:white">
+                            <td class="master-td"><asp:HyperLink ID="HyperLink2" runat="server" Text="State Master"  NavigateUrl="StateMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink>  </td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink3" runat="server" Text="City Master"  NavigateUrl="CityMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink4" runat="server" Text="Product Highlights"  NavigateUrl="Highlight.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                         <tr>
+                           <td class="master-td"><asp:HyperLink ID="HyperLink11" runat="server" Text="Orders List"  NavigateUrl="OrdersList.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink5" runat="server" Text="Category Master"  NavigateUrl="CategoryMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td" ><asp:HyperLink ID="HyperLink6" runat="server" Text="Unit Master"  NavigateUrl="UnitMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink7" runat="server" Text="Brand Master"  NavigateUrl="BrandMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink8" runat="server" Text="Product Master"  NavigateUrl="ProductMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                            <td class="master-td"><asp:HyperLink ID="HyperLink9" runat="server" Text="Slider Master"  NavigateUrl="SliderMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                        <tr>
+                           <td class="master-td"><asp:HyperLink ID="HyperLink10" runat="server" Text="Banner Master"  NavigateUrl="BannerMaster.aspx" CssClass="master-hyperlink"></asp:HyperLink></td>
+                        </tr>
+                    
+                    </table>
+                </td>
+                <td class="auto-style7" valign="top">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+                <td class="auto-style7" valign="top">
+                    </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td style="width: 75%">&nbsp;</td>
+                <td style="width: 75%">&nbsp;</td>
+            </tr>
+        </table>
+
+    </div>
+           
+    </form>
+</body>
+</html>

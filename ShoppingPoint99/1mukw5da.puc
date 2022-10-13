@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections;
+
+
+public partial class Searchbaar : System.Web.UI.Page
+{
+    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["myCon"].ToString());
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        showProductDataList();
+    }
+    public void showProductDataList()
+    {
+        if (Session["product_name"].ToString() != "")
+        {
+            SqlCommand cmd = new SqlCommand("exec getproducts_new @product_id='" + Session["product_name"].ToString() + "'", con);
+            SqlDataAdapter dad = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dad.Fill(dt);
+
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < DataList1.Items.Count; i++)
+                {
+                    Label lblPID = (Label)DataList1.Items[i].FindControl("lblPID");
+                    DropDownList ddlUnitmapping = (DropDownList)DataList1.Items[i].FindControl("ddlUnitmapping");
+                    SqlCommand cmd1 = new SqlCommand("select p.MappingID,(cast(Quantity as varchar(10))+' '+(select UnitName from UnitMaster where UnitID=p.UnitID))Unit from Product_UnitMapping p where ProductID='" + lblPID.Text + "';", con);
+                    SqlDataAdapter dad1 = new SqlDataAdapter(cmd1);
+                    DataTable dt1 = new DataTable();
+                    dad1.Fill(dt1);
+                    ddlUnitmapping.DataSource = dt1;
+                    ddlUnitmapping.DataTextField = "Unit";
+                    ddlUnitmapping.DataValueField = "MappingID";
+                    ddlUnitmapping.DataBind();
+
+                    dt1.Dispose();
+                    dad1.Dispose();
+                }
+            }
+            dt.Dispose();
+            dad.Dispose();
+
+        }
+        else
+        {
+
+            SqlCommand cmd = new SqlCommand("exec getproducts_new @product_id='" + Session["product_name"].ToString() + "'", con);
+            SqlDataAdapter dad = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            dad.Fill(dt);
+
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < DataList1.Items.Count; i++)
+                {
+                    Label lblPID = (Label)DataList1.Items[i].FindControl("lblPID");
+                    DropDownList ddlUnitmapping = (DropDownList)DataList1.Items[i].FindControl("ddlUnitmapping");
+                    SqlCommand cmd1 = new SqlCommand("select p.MappingID,(cast(Quantity as varchar(10))+' '+(select UnitName from UnitMaster where UnitID=p.UnitID))Unit from Product_UnitMapping p where ProductID='" + lblPID.Text + "';", con);
+                    SqlDataAdapter dad1 = new SqlDataAdapter(cmd1);
+                    DataTable dt1 = new DataTable();
+                    dad1.Fill(dt1);
+                    ddlUnitmapping.DataSource = dt1;
+                    ddlUnitmapping.DataTextField = "Unit";
+                    ddlUnitmapping.DataValueField = "MappingID";
+                    ddlUnitmapping.DataBind();
+
+                    dt1.Dispose();
+                    dad1.Dispose();
+                }
+            }
+            dt.Dispose();
+            dad.Dispose();
+        }
+
+    }
+}
